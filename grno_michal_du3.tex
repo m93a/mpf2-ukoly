@@ -77,6 +77,7 @@
 
 \newcommand{\tg}{\operatorname{tg}}
 \newcommand{\cotg}{\operatorname{cotg}}
+\newcommand{\atg}{\operatorname{atg}}
 \newcommand{\Res}{\operatorname{Res}}
 \renewcommand{\Re}{\operatorname{Re}}
 
@@ -221,6 +222,100 @@ Nyní už víme všechno potřebné pro výpočet výsledku:
     I = \int_0^1 \frac{x^{1-p} (1-x)^p}{x^2+1} \d{x},
     \hspace{2em}
     p \in (-1, 2)
+\end{equation*}
+
+\subsection{Řešení}
+Nejprve provedeme v integrálu substituci:
+\begin{equation*}
+    \int_0^1 \frac{x^{1-p} (1-x)^p}{x^2+1} \d{x}
+    = \left| \begin{array}{c}
+        \!\!z = \dfrac{x}{1-x}, \; x = \dfrac{z}{1+z} \\[10pt]
+        \d{x} = (1-x)^2 \d{z}
+    \end{array} \right|
+    = \int_0^{+\infty} \frac{z \left(\frac{z}{z+1}\right)^{-p} \left(1 - \frac{z}{z+1}\right)^p}{(z+1)(2z^2 + 2z + 1)} \d{z}
+    \stackrel{\mathclap{\normalfont\mbox{*}}}{=}
+    \int_0^{+\infty} \frac{z^{1-p}}{(z+1)(2z^2 + 2z + 1)} \d{z}
+\end{equation*}
+V poslední rovnosti ($*$) předpokládáme, že $p\neq0$ a $p\neq 1$. V případě, že by $p$ těchto hodnot nabývalo, má integrál triviální řešení:
+\begin{align*}
+    I|_{p=0} &= \int_0^1 \frac{x}{x^2 + 1} \d{x} = \left[ \frac{1}{2} \ln |x^2 + 1 | \right]_0^1 = \frac{1}{2} \ln 2,
+    \\[5pt]
+    I|_{p=1} &= \int_0^1 \frac{1-x}{x^2+1} \d{x} = \int_0^1 \frac{1}{x^2+1} \d{x} - \int_0^1 \frac{x}{x^2 + 1} \d{x} = \left[\atg x\right]_0^1 - I|_{p=0} = \frac{\pi}{4} - \frac{1}{2} \ln 2.
+\end{align*}
+
+Pro zbylé hodnoty $p$ máme:
+\begin{equation*}
+    I = \int_0^{+\infty} f \d{z},
+    \hspace{2em}
+    f(z) = \frac{z^{1-p}}{(z+1)(2z^2 + 2z + 1)}.
+\end{equation*}
+Funkci $f$ rozšíříme na $\mathbb{C}$, vidíme, že je holomorfní až na izolované singularity v bodech $-1$ a $-\nicefrac{1}{2} \pm \nicefrac{1}{2} \i$.
+
+Integrál $I$ spočteme pomocí křivkového integrálu přes „Pac-Mana“ v komplexní rovině.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{du3u2param.pdf}
+\end{figure}
+\begin{equation*}
+    \varphi = \varphi_1 \oplus \varphi_2 \oplus \varphi_3 \oplus \varphi_4
+\end{equation*}
+\begin{align*}
+    \varphi_1 &= t \mapsto t \e{\i R^{-1}}, \; t \in [R^{-1}, R] \\
+    \varphi_2 &= t \mapsto R \e{\i t}, \; t \in [R^{-1}, 2\pi - R^{-1}] \\
+    \varphi_3 &= t \mapsto (R - t) \e{-\i R^{-1}}, \; t \in [0, R - R^{-1}] \\
+    \varphi_4 &= t \mapsto R^{-1} \e{-\i t}, \; t \in [R^{-1}, 2\pi - R^{-1}]
+\end{align*}
+\begin{equation*}
+    \int_\varphi f \d{z} = 2\pi\i \left(
+        \Res_{-1} f +
+        \Res_{-\nicefrac{1}{2} + \nicefrac{1}{2} \i} f +
+        \Res_{-\nicefrac{1}{2} - \nicefrac{1}{2} \i} f
+    \right)
+\end{equation*}
+Nyní opět učiníme limitní přechod $R \to \infty$:
+\begin{align*}
+    \int_{\varphi_{\ph{1}}} f \d{z} &= \const{konst.} \\
+    \int_{\varphi_1} f \d{z} &\to I \\
+    \int_{\varphi_2} f \d{z} &\sim R^{-1-p} \to 0 \; \mathrm{pro} \; p>-1\\
+    \int_{\varphi_3} f \d{z} &\to -\e{-2\pi\i p} I \\
+    \int_{\varphi_4} f \d{z} &\leq \int_0^{2\pi} \frac{(R^{-1})^{2-p}}{(1-R^{-1})^3} \d{\phi} \leq \frac{(R^{-1})^{2-p}}{\const{konst.}} \to 0 \; \mathrm{pro} \; p<2
+\end{align*}
+Máme tedy:
+\begin{align*}
+    \int_\varphi f \d{z} &= \int_{\varphi_1} f \d{z} + \int_{\varphi_3} f \d{z}
+    \\
+    2\pi\i \left(
+        \Res_{-1} f +
+        \Res_{-\nicefrac{1}{2} + \nicefrac{1}{2} \i} f +
+        \Res_{-\nicefrac{1}{2} - \nicefrac{1}{2} \i} f
+    \right)
+    &= (1 - \e{-2\pi\i p}) I
+    \\
+    \frac{2\pi\i}{1 - \e{-2\pi\i p}} \left(
+        \Res_{-1} f +
+        \Res_{-\nicefrac{1}{2} + \nicefrac{1}{2} \i} f +
+        \Res_{-\nicefrac{1}{2} - \nicefrac{1}{2} \i} f
+    \right)
+    &= I
+\end{align*}
+Zbývá spočítat rezidua:
+\begin{equation*}
+    f = \frac{z^{1-p}}{(z+1)(2z^2 + 2z + 1)}
+    = \frac{z^{1-p}}{2(z+1)(z+\frac{1}{2}+\frac{1}{2} \i)(z+\frac{1}{2}-\frac{1}{2} \i)}
+\end{equation*}
+\begin{gather*}
+    \Res_{-1} f = -\frac{2}{5} (-1)^{-p} = -\frac{2}{5} \e{-\i\pi p} \\[5pt]
+    \Res_{-\nicefrac{1}{2} + \nicefrac{1}{2} \i} f = \left(-\frac{1}{2} + \frac{\i}{2}\right)^{-p} \\[5pt]
+    \Res_{-\nicefrac{1}{2} - \nicefrac{1}{2} \i} f = \left(-\frac{1}{2} - \frac{\i}{2}\right)^{-p}
+\end{gather*}
+Pro $p \in (-1, 0) \cup (0, 1) \cup (1, 2)$ tedy máme:
+\begin{equation*}
+    \int_0^1 \frac{x^{1-p} (1-x)^p}{x^2+1} \d{x}
+    = \frac{2\pi\i}{1 - \e{-2\pi\i p}} \left(
+        \left(-\frac{1}{2} + \frac{\i}{2}\right)^{-p} +
+        \left(-\frac{1}{2} - \frac{\i}{2}\right)^{-p} -
+        \frac{2}{5} \e{-\i\pi p}
+    \right).
 \end{equation*}
 
 \end{document}
