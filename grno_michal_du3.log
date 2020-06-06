@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.10.26)  6 JUN 2020 14:23
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.10.26)  6 JUN 2020 22:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/hermanda/Documents/install/libcxxwrap-julia-build/mpf2-ukoly/mpf2-ukoly/grno_michal_du3
-(/home/hermanda/Documents/install/libcxxwrap-julia-build/mpf2-ukoly/mpf2-ukoly/grno_michal_du3.tex
+**/home/hermanda/Desktop/mpf2-ukoly/mpf2-ukoly/grno_michal_du3
+(/home/hermanda/Desktop/mpf2-ukoly/mpf2-ukoly/grno_michal_du3.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -501,15 +501,7 @@ File: du3u1param.pdf Graphic file (type pdf)
 <use du3u1param.pdf>
  [1
 
-]
-
-LaTeX Warning: Reference `U5:zadanie' on page 2 undefined on input line 217.
-
-[2]
-
-LaTeX Warning: Reference `U5:zadanie' on page 3 undefined on input line 250.
-
-[3]
+] [2] [3]
 File: du3u2param.pdf Graphic file (type pdf)
 <use du3u2param.pdf>
  [4]
@@ -519,22 +511,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 355.
  (./grno_michal_du3.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 355.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 355.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 355.
  ) 
 Here is how much of TeX's memory you used:
- 12382 strings out of 493007
- 184727 string characters out of 6136718
+ 12377 strings out of 493007
+ 184520 string characters out of 6136718
  294743 words of memory out of 5000000
- 16160 multiletter control sequences out of 15000+600000
- 49954 words of font info for 73 fonts, out of 8000000 for 9000
+ 16157 multiletter control sequences out of 15000+600000
+ 49946 words of font info for 72 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 40i,15n,46p,971b,371s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,15n,46p,938b,371s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on grno_michal_du3.pdf (5 pages).
