@@ -6,7 +6,7 @@
 \usepackage{float}
 
 \usepackage{titling}
-\usepackage[czech]{babel}
+\usepackage[czech,slovak]{babel}
 \usepackage{graphicx}
 \usepackage{lmodern}
 \usepackage{hyperref}
@@ -108,7 +108,7 @@
 \maketitle
 
 \section{Příklad 5}
-\subsection{Zadání}
+\subsection{Zadání} \label{U5:zadanie}
 \begin{equation*}
     I = \int_0^{+\infty}\frac{\cosh ax}{\cosh \pi x} \d{x},
     \hspace{2em}
@@ -213,7 +213,41 @@ Nyní už víme všechno potřebné pro výpočet výsledku:
 \begin{equation*}
     \int_0^{+\infty}\frac{\cosh ax}{\cosh \pi x} \d{x} = \frac{1}{2 \cos \frac{a}{2}}.
 \end{equation*}
+\subsection{Obecnejšia úloha}
+Ukázali sme riešenie zadaného príkladu v \ref{U5:zadanie}, avšak naše ciele sú dokázať riešenie integrálu v obecnejšom tvare
+\begin{equation}
+\int_{-\infty}^{\infty} \frac{\cosh \beta x}{(\cosh \alpha x)^{\gamma}} \d x=\frac{2^{\gamma-1}}{\alpha} \frac{\Gamma\left(\frac{1}{2}\left(\gamma+\frac{\beta}{\alpha}\right)\right) \Gamma\left(\frac{1}{2}\left(\gamma-\frac{\beta}{\alpha}\right)\right)}{\Gamma(\gamma)} \quad \operatorname{Re}(\gamma)>\operatorname{Re}(\beta)/\operatorname{Re}(\alpha) \geq 0.
+\end{equation}
 
+\subsection{Riešenie obecnejšej úlohy}
+Prvý krok bude v zavedení substitúcie, tak aby sme sa zbavili multiplikačnej konštanty $\alpha$ v menovateli integrálu. 
+\begin{equation}
+    I:= \int_{-\infty}^{\infty} \frac{\cosh \beta x}{(\cosh \alpha x)^{\gamma}} \d x=\frac{1}{\alpha}\int_{-\infty}^{\infty} \frac{\cosh \delta x}{(\cosh x)^{\gamma}} \d x,
+\end{equation}
+kde $\delta=\frac{\beta}{\alpha}$. V nasledovnom, kroku sa zbavíme nepohodlných exponenciál
+\begin{equation}
+\alpha I:=
+\int_{-\infty}^{\infty} \frac{2 \cosh \delta x}{(2 \cosh x)^{\gamma}} \d x=
+\int_{-\infty}^{\infty} \frac{e^{\delta x}+e^{-\delta x}}{\left(e^{x}+e^{-x}\right)^{\gamma}} \d x=
+\int_{0}^{\infty} \frac{x^{\delta}+x^{-\delta}}{\left(x+x^{-1}\right)^{\gamma}} \frac{\d x}{x}.
+\end{equation}
+Zavedieme kľúčovú substitúciu $x=\sin(u)/\cos(u)$ v integráli $\alpha I$
+\begin{equation}
+\alpha I = \int_{0}^{\frac{\pi}{2}} \frac{\left(\frac{\sin u}{\cos u}\right)^{\delta}+\left(\frac{\cos u}{\sin u}\right)^{\delta}}{\left(\frac{\sin u}{\cos u}+\frac{\cos u}{\sin u}\right)^{\gamma}} \frac{\d u}{\sin u \cdot \cos u},
+\end{equation}
+ďalej prepíšeme menovateľ integrálu do použiteľnejšieho tvaru 
+\begin{equation}
+\frac{\sin u}{\cos u}+\frac{\cos u}{\sin u}=\frac{\sin ^{2} u+\cos ^{2} u}{\sin u \cdot \cos u}=\frac{1}{\sin u \cdot \cos u}.
+\end{equation}
+Dostávame integrál v nasledovnej forme
+\begin{equation}
+    \begin{aligned}
+\alpha I&=\int_{0}^{\frac{\pi}{2}}(\sin u \cdot \cos u)^{\gamma-1}\left(\left(\frac{\sin u}{\cos u}\right)^{\delta}+\left(\frac{\cos u}{\sin u}\right)^{\delta}\right) \d u \\
+&=\int_{0}^{\frac{\pi}{2}}(\sin u)^{\gamma+\delta-1}(\cos u)^{\gamma-\delta-1} \d u+\int_{0}^{\frac{\pi}{2}}(\sin u)^{\gamma-\delta-1}(\cos u)^{\gamma+\delta-1} \d u \\
+&=B\left(\frac{\gamma+\delta}{2}, \frac{\gamma-\delta}{2}\right)=\frac{\Gamma\left(\frac{\gamma+\delta}{2}\right) \Gamma\left(\frac{\gamma-\delta}{2}\right)}{\Gamma(\gamma)},
+    \end{aligned}
+\end{equation}
+následne spätnou substitúciou dostaneme výsledok, ktorý sme chceli overiť. Výsledok príkladu v \ref{U5:zadanie} plynie triviálne.
 \pagebreak
 
 \section{Příklad 13}
