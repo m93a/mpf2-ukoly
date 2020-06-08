@@ -154,7 +154,7 @@ Integrál vypočteme pomocí integrace podél křivky v komplexní rovině:
     \varphi_{2B} &= t \mapsto R \e{-\i t}, \; t \in [0, \pi]
 \end{align*}
 
-Provedeme limitní přechod $R\to\infty$. Pro $\xi < 0$ vymizí integrál přes $\varphi_{2A}$, budeme tedy integrovat přes $\varphi_A$. Pro $\xi > 0$ vymizí integrál přes $\varphi_{2B}$, proto budeme integrovat přes $\varphi_B$. Protože se jedná o rovnost na $L^2$, hodnotu pro $\xi=0$ můžeme libovolně doplnit.
+Provedeme limitní přechod $R\to\infty$. Funkce $F$ je ve tvaru $R(z)\e{\i\alpha z}$, kde $R$ je racionální funkce, z Jordanova lemmatu pro $\alpha>0$ (tj. $\xi<0$) vymizí integrál přes $\varphi_{2A}$, proto budeme integrovat přes $\varphi_A$; pro $\alpha<0$ (tj. $\xi>0$) vymizí $\varphi_{2B}$, budeme proto integrovat přes $\varphi_B$. Protože se jedná o rovnost na $L^2$, hodnotu pro $\xi=0$ můžeme libovolně doplnit.
 \begin{align*}
     \hat{f}(\xi < 0)
     &= \int_{\varphi_1} F(z) \d{z}
@@ -191,6 +191,21 @@ V přepisu jsme využili reziduové věty. Všechny póly $F$ jsou jednonásobn�
     \Res_{\e{-\i\pi/4}} F
     &= \lim_{z\to\e{-\i\pi/4}} \left( z - \e{\nicefrac{-\i\pi}{4}} \right) F(z)
     = \frac{1}{4} \, \e{(-1-\i)\oldsqrt{2}\pi\xi}
+\end{align*}
+
+Nyní máme výsledek:
+\begin{align*}
+    \hat{f}(\xi < 0) &= \ph{-}2\pi\i \left(
+        \frac{1}{4} \, \e{(1-\i)\oldsqrt{2}\pi\xi} +
+        \frac{1}{4} \, \e{(1+\i)\oldsqrt{2}\pi\xi}
+    \right)
+    = \ph{-}\frac{\pi\i}{2} \left( \e{(1-\i)\oldsqrt{2}\pi\xi} + \e{(1+\i)\oldsqrt{2}\pi\xi}\right),
+    \\[5pt]
+    \hat{f}(\xi > 0) &= -2\pi\i \left(
+        \frac{1}{4} \, \e{(-1+\i)\oldsqrt{2}\pi\xi} +
+        \frac{1}{4} \, \e{(-1-\i)\oldsqrt{2}\pi\xi}
+    \right)
+    = -\frac{\pi\i}{2} \left( \e{(-1+\i)\oldsqrt{2}\pi\xi} + \e{(-1-\i)\oldsqrt{2}\pi\xi}\right).
 \end{align*}
 
 \end{document}
