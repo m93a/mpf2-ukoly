@@ -154,14 +154,14 @@ Integrál vypočteme pomocí integrace podél křivky v komplexní rovině:
     \varphi_{2B} &= t \mapsto R \e{-\i t}, \; t \in [0, \pi]
 \end{align*}
 
-Provedeme limitní přechod $R\to\infty$. Pro $\xi > 0$ vymizí integrál přes $\varphi_{2A}$, budeme tedy integrovat přes $\varphi_A$. Pro $\xi < 0$ vymizí integrál přes $\varphi_{2B}$, proto budeme integrovat přes $\varphi_B$. Protože se jedná o rovnost na $L^2$, hodnotu pro $\xi=0$ můžeme libovolně doplnit.
+Provedeme limitní přechod $R\to\infty$. Pro $\xi < 0$ vymizí integrál přes $\varphi_{2A}$, budeme tedy integrovat přes $\varphi_A$. Pro $\xi > 0$ vymizí integrál přes $\varphi_{2B}$, proto budeme integrovat přes $\varphi_B$. Protože se jedná o rovnost na $L^2$, hodnotu pro $\xi=0$ můžeme libovolně doplnit.
 \begin{align*}
-    \hat{f}(\xi > 0)
+    \hat{f}(\xi < 0)
     &= \int_{\varphi_1} F(z) \d{z}
     = \int_{\varphi_A} F(z) \d{z}
     = 2\pi\i \left( \Res_{\e{i\pi/4}} F + \Res_{\e{\i 3\pi/4}} F \right),
     \\[10pt]
-    \hat{f}(\xi < 0)
+    \hat{f}(\xi > 0)
     &= \int_{\varphi_1} F(z) \d{z}
     = \int_{\varphi_B} F(z) \d{z}
     = -2\pi\i \left( \Res_{\e{-i\pi/4}} F + \Res_{\e{-\i 3\pi/4}} F \right).
